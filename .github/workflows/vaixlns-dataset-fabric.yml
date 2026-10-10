@@ -1,0 +1,31 @@
+name: VAIXLNS Dataset Fabric
+
+on:
+  pull_request:
+    paths:
+      - "vaixlns_dataset_fabric/**"
+      - "tests/test_vaixlns_dataset_fabric.py"
+      - "docs/VAIXLNS_DATASET_FABRIC_V1.md"
+      - ".github/workflows/vaixlns-dataset-fabric.yml"
+  push:
+    branches:
+      - "feat/vaixlns-arcx-dataset-fabric-v1"
+    paths:
+      - "vaixlns_dataset_fabric/**"
+      - "tests/test_vaixlns_dataset_fabric.py"
+      - "docs/VAIXLNS_DATASET_FABRIC_V1.md"
+      - ".github/workflows/vaixlns-dataset-fabric.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  adapter-contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --upgrade pip pytest
+      - run: python -m pytest -q tests/test_vaixlns_dataset_fabric.py
