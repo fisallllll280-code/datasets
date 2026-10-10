@@ -28,4 +28,5 @@ jobs:
         with:
           python-version: "3.11"
       - run: python -m pip install --upgrade pip pytest
+      - run: python -m pip install --no-deps -e .
       - run: python -m pytest -q tests/test_vaixlns_dataset_fabric.py
