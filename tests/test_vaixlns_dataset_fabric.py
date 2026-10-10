@@ -94,7 +94,7 @@ def test_symlink_is_rejected(tmp_path: Path):
         max_file_bytes=1024,
         max_total_bytes=2048,
     )
-    assert receipt.status == "UNKNOWN"
+    assert receipt.status == "FAIL"
     assert "symlink_rejected" in receipt.reason
 
 
